@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @RunWith(SpringRunner.class)
 @Import(ExampleApp.class)
@@ -24,6 +25,6 @@ public class ExampleServiceTest {
         String result = service.convertText(text);
 
         // then
-        assertEquals(text.toUpperCase(), result);
+        assertThat(result).isEqualTo(text.toUpperCase());
     }
 }
